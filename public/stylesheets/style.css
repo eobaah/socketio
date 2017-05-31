@@ -16,7 +16,13 @@ body {
 .splashTitle {
   font-size: 3em;
 }
-
+.signup{
+  display: flex;
+  flex-direction: column;
+}
+.signup label{
+  position: relative;
+}
 #splashButton {
   padding: 5%;
 }
@@ -27,7 +33,8 @@ body {
   align-items: center;
 }
 form#chatRoom {
- background: #000;
+ background: rgb(140, 137, 138);
+ display: flex;
  padding: 3px;
  position: fixed;
  bottom: 0;
@@ -54,6 +61,7 @@ form#chatRoom button {
   list-style-type: none;
   margin: 15%;
   padding: 5%;
+  width: 60%;
 }
 
 #messages li {
@@ -63,13 +71,19 @@ form#chatRoom button {
  color: white;
  padding: 5px 10px;
  margin: 2% 0;
- width: 40%;
+ padding: 1%;
+ width: 70%;
 }
 
 #messages li:nth-child(odd) {
+  align-self: flex-start;
   background: rgb(207, 201, 200);
   border-radius: 5px;
   color: black;
-  align-self: flex-start;
-  width: 40%;
+  padding: 1%;
+  width: 70%;
+}
+
+#messageInput {
+  background-color: rgba(19, 35, 47, 0.6);
 }

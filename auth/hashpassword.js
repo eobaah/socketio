@@ -20,7 +20,7 @@ const hashPassword = saltResult => {
       if(error) {
         reject(error)
       }
-      resolve([ salt, password])
+      resolve([ salt, hash])
     })
   })
 }
@@ -29,7 +29,6 @@ const comparePassword = ( password, user ) => {
   return new Promise( ( resolve, reject ) => {
     bcrypt.compare( password, user.password, (error, result ) => {
       const data = result ? user : null
-
       resolve( data )
     })
   })

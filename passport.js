@@ -6,7 +6,7 @@ const paramsOptions = {
   usernameField: 'email'
 }
 
-const findUser = (email, password) => {
+const findUser = ( email, password ) => {
   return User.find( email, password )
 }
 
@@ -14,7 +14,7 @@ const findUserById = id => {
   return User.findById( id )
 }
 
-const strategy = new LocalStrategy( paramsOptions, ( email, password, done ) => {
+const strategy = new LocalStrategy( paramsOptions, (  email, password, done ) => {
   findUser( email, password )
     .then( user => {
       if(user === null ) {

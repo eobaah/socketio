@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS users(
   lastname VARCHAR(140),
   email VARCHAR(140),
   password VARCHAR(140),
+  salt VARCHAR(500),
   role VARCHAR(140)
 );
 

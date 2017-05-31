@@ -176,6 +176,7 @@ textarea {
 }
 
 .button-block {
+  cursor: pointer;
   display: block;
   width: 100%;
 }
