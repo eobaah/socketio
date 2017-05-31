@@ -1,10 +1,10 @@
 
 var socket = io();
 $(function () {
-  $('form').submit(function(){
+  $('form').submit(function(event){
+    event.preventDefault()
     socket.emit('chat message', $('#messageInput').val());
     $('#messageInput').val('');
-    return false;
   });
   socket.on('chat message', function(msg){
     $('#messages').append($('<li>').text(msg));

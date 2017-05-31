@@ -2,13 +2,10 @@ extends layout
 
 block content
   .splashWrapper
-    .userContainer
-      h1 Jeff's and Eugene's Chatapp!
+    .userContainer.form
+      h1.splashTitle CHAT APP
       .userSignupLogin
-        a(type='button' href='/users/signup')
-         .button
-            | Sign up
         a(type='button' href='/users/login')
-         .button
-            | Login
+         #splashButton.button
+            | Get started
       

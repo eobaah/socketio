@@ -8,6 +8,7 @@ router.get('/', (request, response ) => {
   response.render('splash')
 })
 
+
 router.get('/chat', function(request, response, next) {
   response.render('index');
 });
