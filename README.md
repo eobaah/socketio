@@ -52,7 +52,7 @@
 
  ### User chatroom story
 
- - [ ] User can make a new chatroom by clicking a `` button.
+ - [ ] User can make a new chatroom by clicking a button.
  - [ ] User can search on a search bar that auto-completes with all of the chatrooms in the database that match the entered string.
  - [ ] User can see a `chatroom list` of all of the chatrooms they have subscribed too.
  - [ ] `<div class='messages [other classes] >'` exists as a container to where messages for a current chatroom are displayed.
@@ -62,4 +62,4 @@
  - [ ] User can send a message by clicking a send button and/or pressing the enter keyboard key.
  - [ ] Messages are displayed in descending chronological order. ( oldest on top of history )
  - [ ] User's sent messages are displayed on the right side, all other messages on the left side.
- - [ ] Anytime a message is sent, anyone in the chatroom can see the new message almost immediately. ( You can do this by logging in as a different user on a new browser window )
+ - [ ] Anytime a message is sent, anyone in the chatroom can see the new message almost immediately. (You can do this by logging in as a different user on a new browser window )
