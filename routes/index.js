@@ -1,12 +1,14 @@
 var app = require('express');
 var router = app.Router();
-
+var _ = require( 'lodash' )
+var moment = require( 'moment' )
 
 /* GET home page. */
-// router.get('/', function(request, response, next) {
-//   response.render('index', { title: "Hello World!"});
-// });
-router.get('/', function(request, response, next) {
+router.get('/', (request, response ) => {
+  response.render('splash')
+})
+
+router.get('/chat', function(request, response, next) {
   response.render('index');
 });
 

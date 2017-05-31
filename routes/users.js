@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const passport = require('passport')
-const passport2 = require('../passport')
-const User = require( '../database/database').User
+var express = require('express');
+var router = express.Router();
+var passport = require('passport')
+var passport2 = require('../passport')
+var User = require( '../database/database').User
 
-const authOptions = {
+var authOptions = {
   successRedirect: '/',
   failureRedirect: 'users/login'
 }
@@ -56,7 +56,7 @@ router.post( '/login', passport.authenticate( 'local', authOptions ))
 
 router.get( '/logout', ( request, response ) => {
   request.logout()
-  response.redirect( '/chat' )
+  response.redirect( '/' )
 })
 
 module.exports = router;

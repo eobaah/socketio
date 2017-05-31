@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .signupWrapper
+    .signupContainer
+      h1 Sign up for the Chatapp
+      form(method='post').user.signup
+        label Email: 
+          input(type='text' name='email')
+        label Password: 
+          input(type='text' name='password')
+        button(type='submit' value='Submit')
+          | Sign up
