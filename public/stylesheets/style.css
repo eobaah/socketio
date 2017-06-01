@@ -7,24 +7,48 @@
 
 body {
  font: 13px Helvetica, Arial;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+}
+.splashTitle {
+  font-size: 3em;
+}
+.signup{
+  display: flex;
+  flex-direction: column;
+}
+.signup label{
+  position: relative;
+}
+#splashButton {
+  padding: 5%;
 }
 
-form {
- background: #000;
+.userSignupLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form#chatRoom {
+ background: rgb(140, 137, 138);
+ display: flex;
  padding: 3px;
  position: fixed;
  bottom: 0;
  width: 100%;
 }
 
-form input {
+form#chatRoom input {
   border: 0;
   padding: 10px;
   width: 90%;
   margin-right: .5%;
 }
 
-form button {
+form#chatRoom button {
   width: 9%;
   background: rgb(130, 224, 255);
   border: none;
@@ -32,17 +56,34 @@ form button {
 }
 
 #messages {
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 15%;
+  padding: 5%;
+  width: 60%;
 }
 
 #messages li {
+ align-self: flex-end;
+ background: rgb(29, 117, 181);
+ border-radius: 5px;
+ color: white;
  padding: 5px 10px;
- color: red;
+ margin: 2% 0;
+ padding: 1%;
+ width: 70%;
 }
 
 #messages li:nth-child(odd) {
-  background: #eee;
-  color: blue;
+  align-self: flex-start;
+  background: rgb(207, 201, 200);
+  border-radius: 5px;
+  color: black;
+  padding: 1%;
+  width: 70%;
+}
+
+#messageInput {
+  background-color: rgba(19, 35, 47, 0.6);
 }

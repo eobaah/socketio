@@ -1,0 +1,65 @@
+extends layout
+
+block content
+  h1#title.form
+    strong CHAT APP
+  .form
+    ul.tab-group
+      li.tab.active
+        a(href='#signup') Sign Up
+      li.tab
+        a(href='#login') Log In
+    .tab-content
+      #signup
+        h1 Sign Up
+        form(action='/users/signup', method='post')
+          .top-row
+            .field-wrap
+              label
+                | First Name
+                span.req *
+              input(type='text', required='', autocomplete='off', name='firstname')
+            .field-wrap
+              label
+                | Last Name
+                span.req *
+              input(type='text', required='', autocomplete='off', name='lastname')
+          .field-wrap
+            label
+              | Email Address
+              span.req *
+            input(type='email', required='', autocomplete='off', name='email')
+          .field-wrap
+            label
+              | User Name
+              span.req *
+            input(type='userName', required='', autocomplete='off', name='username' )
+          .field-wrap
+            label
+              | Set A Password
+              span.req *
+            input(type='password', required='', autocomplete='off', name='password')
+          button.button.button-block(type='submit' value='Submit') Get Started
+      #login
+        h1 Welcome Back!
+        form(action='/users/login', method='post')
+          .field-wrap
+            label
+              | User Name
+              span.req *
+            input(type='userName', required='', autocomplete='off' name='username')
+          .field-wrap
+            label
+              | Email Address
+              span.req *
+            input(type='email', required='', autocomplete='off', name='email')
+          .field-wrap
+            label
+              | Password
+              span.req *
+            input(type='password', required='', autocomplete='off', name='password')
+          button.button.button-block(type='submit' value='Submit') Log In
+    // tab-content
+  // /form
+  script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+  script(src='/javascripts/loginScripts.js')
