@@ -2,8 +2,25 @@ extends layout
 
 block content
   body
-    ul#messages
-    form#chatRoom(action="")
-      input#messageInput(autocomplete="off")
-      button#chatBtn Send
-        
+    .mainFlexContainer
+      .logout
+        button.logOutBtn Logout
+      .headerSection
+        .titleSection
+          h1 CHAT APP
+        form.searchSection
+          input(type="text" placeholder="Search for a chatroom")
+          button.searchbtn(type='submit' value='submit') Search
+      form.chatRoomsTitle
+        h2 Chatrooms 
+        .addChatRoom
+          input.insertChatRoom(type="text" placeholder="chatroom")
+          button.createChatRoom(type='submit' value='submit') add
+      .mainChatHub
+        .chatRoomCards
+        .chatMessages  
+          ul#messages
+          form#chatRoom(action="")
+            input#messageInput(autocomplete="off")
+            button#chatBtn Send
+          

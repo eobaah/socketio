@@ -1,6 +1,6 @@
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
-const User = require('./database/database').User
+const passport = require( 'passport' )
+const LocalStrategy = require( 'passport-local' ).Strategy
+const User = require( './database/database' ).User
 
 const paramsOptions = {
   usernameField: 'email'
@@ -17,7 +17,7 @@ const findUserById = id => {
 const strategy = new LocalStrategy( paramsOptions, (  email, password, done ) => {
   findUser( email, password )
     .then( user => {
-      if(user === null ) {
+      if( user === null ) {
         done( null, false, { message: 'Incorrect email or password fool!'})
       } else {
         done( null, user )

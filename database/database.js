@@ -12,53 +12,63 @@ const db = pgp( CONNECTION_STRING )
 const Messages = {
 
   getChatRooms: () => {
-    return db.any(`SELECT * FROM bookstore ORDER BY title ASC`,[])
+    return db.any(`SELECT * FROM chatrooms ORDER BY roomname DESC`,[])
   },
 
-  selectRoom: (id) => {
-    return db.one(`SELECT * FROM bookstore WHERE id=$1`,[id])
+  selectRoom: (roomid) => {
+    return db.one(`SELECT * FROM chatrooms WHERE id=$1`,[roomid])
   },
 
   queryString: (input) => {
     input = `%${input}%`
     return db.any(`
-      SELECT * FROM bookstore
-      WHERE UPPER(title) like UPPER($1)
-      OR UPPER(author) like UPPER($1)
-      OR UPPER(genre) like UPPER($1)`,
+      SELECT * FROM chatrooms
+      WHERE UPPER(roomname) like UPPER($1)
+      `,
       [input])
   },
 
-  leaveChatRoom: id => {
-    return db.none(`DELETE FROM bookstore WHERE id=$1`,[id])
+  leaveChatRoom: activeuserid => {
+    return db.none(`DELETE FROM activeusers WHERE id=$1`,[ activeuserid ])
   },
 
-  createChatRoom: ( { title, author, preview, genre, image_url }) => {
+  createChatRoom: ( { roomname }) => {
     return db.any(
-      `INSERT INTO bookstore
-        ( title, author, preview, genre, image_url )
+      `INSERT INTO chatrooms
+        ( roomname )
       VALUES
-        ( $1, $2, $3, $4, $5)`,
-      [ title, author, preview, genre, image_url ]
+        ( $1 )`,
+      [ roomname ]
     )
   },
 
-  editChatRoom: ( id, book ) => {
+  editChatRoom: ( roomid, roomname ) => {
     return db.oneOrNone(
-       `UPDATE bookstore
-       SET title=$2, author=$3, preview=$4, genre=$5, image_url=$6
-       WHERE id=$1`,
-       [id, book.title, book.author, book.preview, book.genre, book.image_url] )
+       `UPDATE chatrooms
+       SET roomname=$2
+       WHERE roomid=$1`,
+       [ roomid, roomname ] )
   }
 }
 
 const User = {
+  isActiveUser: ( activeuserid ) => {
+    return db.one(`SELECT * FROM activeusers WHERE activeuserid=$1`,[ activeuserid ])
+  },
+
+  makeActiveUser: ( activeuserid, id, roomid ) => {
+    return db.none(`INSERT INTO activeusers
+      ( activeuserid, id, roomid )
+    VALUES
+      ( $1, $2, $3 )`,[ activeuserid, id, roomid ])
+  },
 
   find: ( email, password ) => {
     return db.oneOrNone( 'SELECT * FROM users WHERE email=$1', [ email])
       .then( user => comparePassword( password, user))
   },
-  findById: id => db.one( 'SELECT * FROM users WHERE id=$1', [id] ),
+
+  findById: id => db.one( 'SELECT * FROM users WHERE id=$1', [ id ] ),
   createOne: (
     firstname,
     lastname,
@@ -80,8 +90,8 @@ const User = {
               lastname,
               email,
               username,
-              hash[0],
-              hash[1] ]
+              hash[ 0 ],
+              hash[ 1 ] ]
         )
       })
   }

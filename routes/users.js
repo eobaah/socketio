@@ -4,6 +4,9 @@ const passport = require('passport')
 const passport2 = require('../passport')
 const User = require( '../database/database').User
 
+
+
+
 const authOptions = {
   successRedirect: '/chat',
   failureRedirect: '/'

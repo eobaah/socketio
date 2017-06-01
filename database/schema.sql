@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users(
 );
 
 CREATE TABLE IF NOT EXISTS activeUsers(
-  activeUserId SERIAL PRIMARY KEY,
+  activeUserId VARCHAR(300),
   id INTEGER,
   roomId INTEGER
 );

@@ -32,6 +32,82 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+
+/*============================================*/
+/*chat room section*/
+.mainFlexContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 5%;
+}
+.logout{
+  display:flex;
+  justify-content: flex-end;
+  margin: 0 0 20% 0;
+
+}
+.logOutBtn{
+  height:2% ;
+  padding: 1.5% ;
+}
+.headerSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.titleSection {
+  font-size: 2em;
+  width: 30%;
+}
+
+.searchSection {
+  height: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  width:35%;
+}
+
+.searchbtn {
+  margin: 0 5% 0 5%;
+  width: 23%;
+  padding: 1%;
+}
+
+.chatRoomsTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.addChatRoom{
+  width: 30%;
+  flex-direction: row;
+}
+
+.createChatRoom {
+  margin: 0 0 0 2%;
+  width: 15%;
+  height: 5%;
+}
+
+.mainChatHub {
+  display: flex;
+  flex-direction: row;
+}
+
+.chatRoomCards {
+  width: 30%;
+}
+
+.chatMessages {
+  width: 70%;
+  height: 100%;
+}
+
 form#chatRoom {
  background: rgb(140, 137, 138);
  display: flex;
