@@ -34,10 +34,10 @@ router.post('/createchatroom', (request, response, next ) => {
 router.get('/home', isLoggedIn, function(request, response, next) {
   Messages.getChatRooms()
     .then( newrooms => {
-    response.cookie('userid', request.user.id, { maxAge: (30*60*1000), httpOnly: false })
-    response.render( 'index', {
-      newrooms
-    }) ;
+      response.cookie('userid', request.user.id, { maxAge: (30*60*1000), httpOnly: false })
+      response.render( 'index', {
+        newrooms
+      }) ;
     })
 });
 

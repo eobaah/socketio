@@ -10,6 +10,9 @@ const CONNECTION_STRING = `pg://${process.env.USER}@localhost:5432/chatdb`
 const db = pgp( CONNECTION_STRING )
 
 const Messages = {
+  getAllMessagesByRoom: (roomid) =>{
+    return db.many(`SELECT * FROM chatrooms WHERE id=$1`,[roomid])
+  },
 
   getChatRooms: () => {
     return db.any(`SELECT * FROM chatrooms ORDER BY roomname DESC`,[])
