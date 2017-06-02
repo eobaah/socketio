@@ -9,7 +9,7 @@ block content
         .titleSection
           h1 CHAT APP
         form.searchSection
-          input(type="text" placeholder="Search for a chatroom")
+          input(type="text" placeholder="Search for a chatroom").searchInput
           button.searchbtn(type='submit' value='submit') Search
       .chatRoomsTitle
         h2 Chatrooms 
@@ -19,11 +19,11 @@ block content
       .mainChatHub
         .chatRoomCards
          for newroom in newrooms
-           .chatRoomCardObject
+           .chatRoomCardObject(data-id=newroom.roomid)
              p=newroom.roomname
-        .chatMessages  
+        .chatMessages.messages  
           ul#messages
           form#chatRoom(action="")
-            input#messageInput(autocomplete="off")
+            textarea#messageInput(autocomplete="off")
             button#chatBtn Send
           

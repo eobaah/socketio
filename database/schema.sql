@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users(
   role VARCHAR(140)
 );
 
-CREATE TABLE IF NOT EXISTS activeUsers(
+CREATE TABLE IF NOT EXISTS room_members(
   activeUserId VARCHAR(300),
   id INTEGER,
   roomId INTEGER

@@ -19,6 +19,13 @@ const Messages = {
     return db.one(`SELECT * FROM chatrooms WHERE id=$1`,[roomid])
   },
 
+  joinRoom: (roomid) => {
+    return db.one(`INSERT INTO chatrooms
+      ( roomname )
+    VALUES
+      ( $1 )`,[roomid])
+  },
+
   queryString: (input) => {
     input = `%${input}%`
     return db.any(`
@@ -29,7 +36,7 @@ const Messages = {
   },
 
   leaveChatRoom: activeuserid => {
-    return db.none(`DELETE FROM activeusers WHERE id=$1`,[ activeuserid ])
+    return db.none(`DELETE FROM room_members WHERE id=$1`,[ activeuserid ])
   },
 
   createChatRoom: ( roomname ) => {
@@ -53,11 +60,11 @@ const Messages = {
 
 const User = {
   isActiveUser: ( activeuserid ) => {
-    return db.one(`SELECT * FROM activeusers WHERE activeuserid=$1`,[ activeuserid ])
+    return db.one(`SELECT * FROM room_members WHERE activeuserid=$1`,[ activeuserid ])
   },
 
   makeActiveUser: ( activeuserid, id, roomid ) => {
-    return db.none(`INSERT INTO activeusers
+    return db.none(`INSERT INTO room_members
       ( activeuserid, id, roomid )
     VALUES
       ( $1, $2, $3 )`,[ activeuserid, id, roomid ])
