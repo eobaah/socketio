@@ -25,7 +25,7 @@
 
  ### General Specs
 
- - [ ] App has a **landing page** (on route `/`) where a user can either **log in** of **sign up**.
+ - [x] App has a **landing page** (on route `/`) where a user can either **log in** of **sign up**.
  - [ ] App has a **home page** (on route `/home`) where the user can see a list of chatrooms they have subscribed to along with a feed of all the conversation for currently selected room.
  - [ ] Uses Socket.io to make a socket.
  - [ ] Uses ajax/fetch calls to communicate with API endpoints.

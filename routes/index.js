@@ -27,11 +27,11 @@ router.post('/createchatroom', (request, response, next ) => {
   const roomname = request.body.roomname
   console.log( "======> roomname", roomname )
   Messages.createChatRoom( roomname )
-    .then( () => response.redirect( '/chat' ) )
+    .then( () => response.redirect( '/home' ) )
 })
 
 
-router.get('/chat', isLoggedIn, function(request, response, next) {
+router.get('/home', isLoggedIn, function(request, response, next) {
   Messages.getChatRooms()
     .then( newrooms => {
     response.cookie('userid', request.user.id, { maxAge: (30*60*1000), httpOnly: false })
