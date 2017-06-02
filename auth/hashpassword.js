@@ -27,6 +27,9 @@ const hashPassword = saltResult => {
 
 const comparePassword = ( password, user ) => {
   return new Promise( ( resolve, reject ) => {
+    if(!user) {
+      reject('No user of that name exists')
+    }
     bcrypt.compare( password, user.password, (error, result ) => {
       const data = result ? user : null
       resolve( data )

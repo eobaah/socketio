@@ -4,8 +4,11 @@ const passport = require('passport')
 const passport2 = require('../passport')
 const User = require( '../database/database').User
 
+
+
+
 const authOptions = {
-  successRedirect: '/chat',
+  successRedirect: '/home',
   failureRedirect: '/'
 }
 
@@ -40,7 +43,7 @@ router.post( '/signup', (request, response, next) => {
         if(error) {
           next(error)
         }
-        response.redirect('/chat')
+        response.redirect('/home')
       })
     })
     .catch( error => {
