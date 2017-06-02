@@ -2,7 +2,7 @@ var app = require('express');
 var router = app.Router();
 var _ = require( 'lodash' )
 var moment = require( 'moment' )
-const User = require( '../database/database').User
+const {User, Messages} = require( '../database/database')
 
 
 function isLoggedIn(request, response, next) {
@@ -23,10 +23,22 @@ router.get('/', (request, response ) => {
   response.render('splash')
 })
 
+router.post('/createchatroom', (request, response, next ) => {
+  const roomname = request.body.roomname
+  console.log( "======> roomname", roomname )
+  Messages.createChatRoom( roomname )
+    .then( () => response.redirect( '/chat' ) )
+})
+
 
 router.get('/chat', isLoggedIn, function(request, response, next) {
-  response.cookie('userid', request.user.id, { maxAge: (30*60*1000), httpOnly: false })
-  response.render('index');
+  Messages.getChatRooms()
+    .then( newrooms => {
+    response.cookie('userid', request.user.id, { maxAge: (30*60*1000), httpOnly: false })
+    response.render( 'index', {
+      newrooms
+    }) ;
+    })
 });
 
 module.exports = router

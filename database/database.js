@@ -32,7 +32,7 @@ const Messages = {
     return db.none(`DELETE FROM activeusers WHERE id=$1`,[ activeuserid ])
   },
 
-  createChatRoom: ( { roomname }) => {
+  createChatRoom: ( roomname ) => {
     return db.any(
       `INSERT INTO chatrooms
         ( roomname )

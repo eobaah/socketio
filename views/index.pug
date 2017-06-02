@@ -11,13 +11,16 @@ block content
         form.searchSection
           input(type="text" placeholder="Search for a chatroom")
           button.searchbtn(type='submit' value='submit') Search
-      form.chatRoomsTitle
+      .chatRoomsTitle
         h2 Chatrooms 
-        .addChatRoom
-          input.insertChatRoom(type="text" placeholder="chatroom")
-          button.createChatRoom(type='submit' value='submit') add
+        form.addChatRoom(action='/createchatroom' method='POST')
+          input.insertChatRoom(type="text" placeholder="chatroom" name="roomname")
+          button.createChatRoom(type='subsubmit') Add
       .mainChatHub
         .chatRoomCards
+         for newroom in newrooms
+           .chatRoomCardObject
+             p=newroom.roomname
         .chatMessages  
           ul#messages
           form#chatRoom(action="")
