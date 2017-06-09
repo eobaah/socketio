@@ -41,4 +41,15 @@ router.get('/home', isLoggedIn, function(request, response, next) {
     })
 });
 
+router.patch('/join/:roomid', isLoggedIn, function(request, response, next) {
+  const roomid = request.params.roomid
+  const id = request.cookies.userid
+
+  console.log("pllllleaaaaase work",id)
+  Messages.joinRoom( roomid, id)
+  console.log("room joined",roomjoined)
+    .then( roomjoined => { response.redirect( '/home' ) })
+})
+
+
 module.exports = router
