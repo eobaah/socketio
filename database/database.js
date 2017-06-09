@@ -22,11 +22,10 @@ const Messages = {
     return db.one(`SELECT * FROM chatrooms WHERE id=$1`,[roomid])
   },
 
-  joinRoom: (roomid) => {
-    return db.one(`INSERT INTO chatrooms
-      ( roomname )
-    VALUES
-      ( $1 )`,[roomid])
+  joinRoom: (roomid, id) => {
+    return db.one(`UPDATE room_members
+    SET roomid=$2
+    WHERE id=$1`,[roomid, id])
   },
 
   queryString: (input) => {
